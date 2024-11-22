@@ -1,4 +1,4 @@
-import type { Site, Socials } from "@types";
+import type { Site, Socials } from "./types";
 
 export const SITE: Site = {
   url: "https://example.com",
