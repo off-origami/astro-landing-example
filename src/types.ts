@@ -2,7 +2,7 @@ import type socialIcons from "@assets/socialIcons";
 
 export type Site = {
   url: string; // Canonical URL
-  name: string; // Site name
+  website: string; // Site name
   title: string; // Default title for meta tags
   description: string; // Default description for meta tags
   image: string; // Default image for meta tags
