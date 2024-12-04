@@ -1,7 +1,7 @@
 import type { Site, Socials } from "./types";
 
 export const SITE: Site = {
-  url: "https://example.com",
+  url: "http://localhost",
   name: "pagegen",
   title: "Pagegen: Webpage builder for marketers",
   description:

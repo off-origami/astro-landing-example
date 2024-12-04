@@ -6,6 +6,6 @@ import { SITE } from "./src/config";
 
 // https://astro.build/config
 export default defineConfig({
-  site: SITE.name,
+  site: SITE.url,
   integrations: [tailwind(), sitemap()],
 });

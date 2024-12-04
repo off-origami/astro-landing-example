@@ -26,13 +26,16 @@ async function fetchFont(font: string, text: string): Promise<ArrayBuffer> {
     /src: url\((.+)\) format\('(opentype|truetype)'\)/
   );
 
-  if (!resource) throw new Error("Failed to download dynamic font");
+  if (!resource)
+    throw new Error(
+      `Failed to extract font URL from Google Fonts API response for font: ${font}`
+    );
 
   const response = await fetch(resource[1]);
 
   if (!response.ok) {
     throw new Error(
-      "Failed to download dynamic font. Status: " + response.status
+      `Failed to download font from ${resource[1]}. Status: ${response.status}`
     );
   }
 
@@ -54,18 +57,3 @@ export async function loadGoogleFont(
 
   return fonts;
 }
-
-const fontsConfig: FontConfig[] = [
-  {
-    name: "Roboto",
-    font: "Roboto",
-    weight: 400,
-  },
-  {
-    name: "Roboto",
-    font: "Roboto:wght@700",
-    weight: 700,
-  },
-];
-
-loadGoogleFont("Sample text", fontsConfig);
