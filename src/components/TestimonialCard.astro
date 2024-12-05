@@ -1,0 +1,36 @@
+---
+import Images from "../components/Images.astro";
+
+interface Item {
+  name: string;
+  image: string;
+  alt: string;
+  job: string;
+  testimonial: string;
+}
+
+interface Props {
+  items: Item[];
+}
+
+const { items } = Astro.props;
+---
+
+{
+  items.map(item => (
+    <figure class="bg-surface flex flex-col gap-4 rounded-xl px-6 py-4 sm:rounded-3xl sm:px-9 sm:py-[1.625rem]">
+      <div class="flex items-center gap-4">
+        <Images
+          src={`${item.image}`}
+          alt={item.alt}
+          classes="rounded-full h-16 w-16"
+        />
+        <div class="flex flex-col">
+          <p class="text-xl font-semibold text-black">{item.name}</p>
+          <small class="text-base">{item.job}</small>
+        </div>
+      </div>
+      <blockquote class="text-base">{item.testimonial}</blockquote>
+    </figure>
+  ))
+}

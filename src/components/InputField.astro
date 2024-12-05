@@ -1,0 +1,16 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"input"> & { labelName: string; id: string };
+
+const { labelName, id, ...attrs } = Astro.props;
+---
+
+<div class="flex flex-col gap-2">
+  <label for={id} class="text-base font-semibold">{labelName}</label>
+  <input
+    {id}
+    {...attrs}
+    class="bg-surface placeholder-text-placeholder rounded-lg px-5 py-3"
+  />
+</div>

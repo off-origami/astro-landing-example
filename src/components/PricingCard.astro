@@ -1,0 +1,52 @@
+---
+import Button from "./Button.astro";
+
+interface Props {
+  planName: string;
+  price?: number;
+  features: string[];
+}
+
+const { planName, price = 0, features } = Astro.props;
+---
+
+<div
+  class="bg-surface flex flex-col rounded-xl px-6 py-4 text-black sm:rounded-3xl sm:px-9 sm:py-[1.625rem]"
+>
+  <p class="mb-3 text-2xl font-medium sm:text-3xl">{planName}</p>
+  <div class="mb-3 inline-flex items-center font-medium">
+    <span class="text-4xl sm:text-5xl">{price ? `$${price}` : "Custom"}</span>
+    <div class="text-text-base ml-3 text-lg font-normal">
+      <p class="block">{price ? "/month" : ""}</p>
+      <p class="hidden">{price ? "/year" : ""}</p>
+    </div>
+  </div>
+
+  <Button link="#contact" text="Get plan" size="medium" classes="mt-4" />
+
+  <div class="mt-2">
+    <ul class="pt-4">
+      {
+        features.map(feature => (
+          <li class="flex items-center gap-2 py-1.5">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2.5"
+              stroke="#5570f1"
+              class="size-5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m4.5 12.75 6 6 9-13.5"
+              />
+            </svg>
+            {feature}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>

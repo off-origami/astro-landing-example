@@ -1,0 +1,136 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t-surface-border border-t-[1px] py-32 text-base">
+  <div
+    class="mx-auto grid grid-cols-2 gap-x-8 gap-y-10 px-4 sm:grid-cols-6 sm:gap-x-16 sm:gap-y-16 md:max-w-[69rem] lg:grid-cols-[1.5fr_1.5fr_1fr_1fr_1fr] lg:gap-y-0"
+  >
+    <!-- Logo Start and Socials -->
+    <div class="flex flex-col gap-8 sm:col-span-3 lg:col-span-1">
+      <a href="#"><img src="logo.svg" class="h-11 w-auto" /></a>
+      <ul class="flex gap-6">
+        <li>
+          <a href="#"
+            ><svg
+              class="fill-text-base hover:fill-button-primary size-6 transition-colors"
+            >
+              <use href="/social.svg#github"></use>
+            </svg></a
+          >
+        </li>
+        <li>
+          <a href="#"
+            ><svg
+              class="fill-text-base hover:fill-button-primary size-6 transition-colors"
+            >
+              <use href="/social.svg#linkedin"></use>
+            </svg></a
+          >
+        </li>
+      </ul>
+      <p class="mt-auto text-sm text-black">
+        Copyright &copy; {currentYear} by pagegen, Inc. All rights reserved.
+      </p>
+    </div>
+    <!-- Logo and Socials End -->
+    <!-- Contact us Row Start -->
+    <div class="sm:col-span-3 lg:col-span-1">
+      <p class="mb-4 text-lg font-medium text-black sm:mb-10">Contact us</p>
+      <address class="not-italic">
+        <p class="mb-4 text-black sm:mb-6">
+          2580 N Main St., 3rd Floor, San Francisco, CA 94597
+        </p>
+        <div class="flex flex-col items-start gap-4">
+          <a
+            href="tel:619-863-8948"
+            class="shadow-custom1 hover:text-button-primary pb-px transition-all hover:shadow-none"
+            >619-863-8948</a
+          >
+          <a
+            href="mailto:hello@pagegen.com"
+            class="shadow-custom1 hover:text-button-primary pb-px transition-all hover:shadow-none"
+            >hello@pagegen.com</a
+          >
+        </div>
+      </address>
+    </div>
+    <!-- Contact us Row End -->
+    <!-- Account Row Start -->
+    <nav class="sm:col-span-2 sm:row-start-1 lg:col-span-1 lg:col-start-3">
+      <p class="mb-4 text-lg font-medium text-black sm:mb-10">Account</p>
+      <ul class="flex flex-col gap-4">
+        <li>
+          <a href="#" class="hover:text-button-primary transition-colors"
+            >Create account</a
+          >
+        </li>
+        <li>
+          <a href="#" class="hover:text-button-primary transition-colors"
+            >Login</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <!-- Account Row End -->
+    <!-- Company Row Start -->
+    <nav class="sm:col-span-2 sm:row-start-1 lg:col-span-1 lg:col-start-4">
+      <p class="mb-4 text-lg font-medium text-black sm:mb-10">Company</p>
+      <ul class="flex flex-col gap-4">
+        <li>
+          <a href="#" class="hover:text-button-primary transition-colors"
+            >About</a
+          >
+        </li>
+        <li>
+          <a href="#" class="hover:text-button-primary transition-colors"
+            >Careers</a
+          >
+        </li>
+        <li>
+          <a href="#" class="hover:text-button-primary transition-colors"
+            >For Business</a
+          >
+        </li>
+        <li>
+          <a href="#" class="hover:text-button-primary transition-colors"
+            >Partners</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <!-- Company Row End -->
+    <!-- Resources Row Start -->
+    <nav class="sm:col-span-2 sm:row-start-1 lg:col-span-1 lg:col-start-5">
+      <p class="mb-4 text-lg font-medium text-black sm:mb-10">Resources</p>
+      <ul class="flex flex-col gap-4">
+        <li>
+          <a href="#" class="hover:text-button-primary transition-colors"
+            >Help center</a
+          >
+        </li>
+        <li>
+          <a href="#" class="hover:text-button-primary transition-colors"
+            >Terms of Service</a
+          >
+        </li>
+        <li>
+          <a href="#" class="hover:text-button-primary transition-colors"
+            >Privacy policy</a
+          >
+        </li>
+        <li>
+          <a href="#" class="hover:text-button-primary transition-colors"
+            >Cookie policy</a
+          >
+        </li>
+        <li>
+          <a href="#" class="hover:text-button-primary transition-colors"
+            >Sitemap</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <!-- Resources Row End -->
+  </div>
+</footer>

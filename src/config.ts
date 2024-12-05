@@ -1,7 +1,9 @@
 import type { Site, Socials } from "./types";
 
 export const SITE: Site = {
-  url: "http://localhost",
+  canonicalURL: "http://localhost",
+  lang: "en",
+  author: "Daniel Adrian",
   name: "pagegen",
   title: "Pagegen: Webpage builder for marketers",
   description:
@@ -11,8 +13,7 @@ export const SITE: Site = {
 
   twitter: {
     card: "summary_large_image",
-    creator: "@odelyonweb",
-    image: "/custom-twitter-image.jpg",
+    image: "pagegen-og.jpg",
   },
 };
 

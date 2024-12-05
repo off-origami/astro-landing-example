@@ -1,0 +1,38 @@
+---
+import Images from "../components/Images.astro";
+
+interface Item {
+  title: string;
+  description: string;
+  image: string;
+  alt: string;
+  animation?: string;
+}
+
+interface Props {
+  items: Item[];
+}
+
+const { items } = Astro.props;
+---
+
+{
+  items.map((item, index) => (
+    <div class={`relative ${item.animation}`}>
+      <div class="bg-button-primary absolute left-1/2 top-0 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full text-2xl text-white sm:h-16 sm:w-16 sm:text-[1.75rem] md:text-3xl">
+        {index + 1}
+      </div>
+      <div class="bg-surface grid items-center gap-x-16 overflow-hidden rounded-xl sm:rounded-3xl md:grid-cols-2">
+        <div class={`p-6 sm:p-9 lg:p-12 ${index % 2 ? "md:order-last" : ""}`}>
+          <h3 class="mb-3 mt-6 text-2xl font-medium text-black sm:text-3xl md:mb-6 md:mt-0">
+            {item.title}
+          </h3>
+          <p class="text-lg">{item.description}</p>
+        </div>
+        <div class="mx-4 mb-4 flex items-center justify-center overflow-hidden rounded-xl md:m-4">
+          <Images src={`${item.image}`} alt={item.alt} height={380} />
+        </div>
+      </div>
+    </div>
+  ))
+}

@@ -1,0 +1,137 @@
+---
+import Button from "./Button.astro";
+---
+
+<header
+  id="header"
+  class="fixed inset-x-0 top-0 z-50 bg-white pt-4 transition-all duration-100 ease-out"
+>
+  <div
+    class="w-full px-4 md:max-w-[69rem] lg:mx-auto lg:flex lg:items-center lg:justify-between"
+  >
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#"
+        ><img src="logo.svg" alt="Company Logo" class="h-11 w-auto" /></a
+      >
+      <!-- Logo End -->
+
+      <!-- Toggle Button -->
+      <div class="lg:hidden">
+        <button
+          type="button"
+          class="flex size-8 items-center justify-center disabled:pointer-events-none disabled:opacity-50"
+          aria-label="Toggle navigation"
+        >
+          <svg
+            class="hs-collapse-open:hidden size-6 shrink-0"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><line x1="3" x2="21" y1="6" y2="6"></line><line
+              x1="3"
+              x2="21"
+              y1="12"
+              y2="12"></line><line x1="3" x2="21" y1="18" y2="18"></line></svg
+          >
+          <svg
+            class="hs-collapse-open:block hidden size-6 shrink-0"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg
+          >
+        </button>
+      </div>
+      <!-- Toggle Button End -->
+    </div>
+
+    <!-- Collapse -->
+    <div class="hidden grow basis-full overflow-hidden lg:block">
+      <nav
+        class="flex flex-col py-2 font-medium text-black md:flex-row md:items-center md:justify-end md:gap-8 md:py-4 md:text-base"
+      >
+        <a
+          href="#how"
+          class="hover:text-button-primary py-4 transition-colors md:py-0"
+          >How it works</a
+        >
+        <a
+          href="#testimonials"
+          class="hover:text-button-primary py-4 transition-colors md:py-0"
+          >Testimonials</a
+        >
+        <a
+          href="#features"
+          class="hover:text-button-primary py-4 transition-colors md:py-0"
+          >Features</a
+        >
+        <a
+          href="#pricing"
+          class="hover:text-button-primary py-4 transition-colors md:py-0"
+          >Pricing</a
+        >
+        <a
+          href="#login"
+          class="hover:text-button-primary py-4 transition-colors md:py-0"
+          >Log in</a
+        >
+        <div class="flex py-4 md:py-0">
+          <Button
+            link="#contact"
+            text="Try for free"
+            size="small"
+            classes="nav-link"
+          />
+        </div>
+      </nav>
+    </div>
+    <!-- Collapse End -->
+  </div>
+</header>
+
+<script>
+  const getElement = function <T extends HTMLElement>(
+    selector: string,
+    type: { new (): T }
+  ): T {
+    const element = document.getElementById(selector);
+    if (!element)
+      throw new Error(`Element with selector "${selector}" not found.`);
+    if (element instanceof type) return element as T;
+    throw new Error(
+      `Element with selector "${selector}" is not of expected type ${type.name}.`
+    );
+  };
+
+  const header = getElement<HTMLElement>("header", HTMLElement);
+
+  const headerHeight = header.offsetHeight;
+
+  const stickyNav = function (entries: IntersectionObserverEntry[]) {
+    const [entry] = entries;
+
+    if (!entry.isIntersecting) header.classList.add("sticky");
+    else header.classList.remove("sticky");
+  };
+
+  const headerObserver = new IntersectionObserver(stickyNav, {
+    root: null,
+    threshold: 0,
+    rootMargin: `-${headerHeight}px`,
+  });
+
+  headerObserver.observe(header);
+</script>
