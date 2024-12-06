@@ -5,6 +5,19 @@ import "@styles/base.css";
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 const socialImageURL = new URL(SITE.image, Astro.url.origin).href;
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: SITE.title,
+  url: SITE.canonicalURL,
+  description: SITE.description,
+  isPartOf: {
+    "@type": "WebSite",
+    name: SITE.name,
+    url: SITE.canonicalURL,
+  },
+};
 ---
 
 <!doctype html>
@@ -36,11 +49,14 @@ const socialImageURL = new URL(SITE.image, Astro.url.origin).href;
     <meta property="twitter:description" content={SITE.description} />
     <meta property="twitter:image" content={socialImageURL} />
 
+    <!-- Google JSON-LD Structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:ital,wght@0,400;0,500;0,600;&display=swap"
       rel="preload"
       as="style"
       onload="this.onload=null; this.rel='stylesheet';"
@@ -59,7 +75,7 @@ const socialImageURL = new URL(SITE.image, Astro.url.origin).href;
       )
     }
   </head>
-  <body>
+  <body class="text-lg">
     <slot />
   </body>
 </html>

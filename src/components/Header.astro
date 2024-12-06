@@ -4,7 +4,7 @@ import Button from "./Button.astro";
 
 <header
   id="header"
-  class="fixed inset-x-0 top-0 z-50 bg-white pt-4 transition-all duration-100 ease-out"
+  class="fixed inset-x-0 top-0 z-50 bg-white transition-all duration-75 ease-linear"
 >
   <div
     class="w-full px-4 md:max-w-[69rem] lg:mx-auto lg:flex lg:items-center lg:justify-between"
@@ -20,8 +20,12 @@ import Button from "./Button.astro";
       <div class="lg:hidden">
         <button
           type="button"
-          class="flex size-8 items-center justify-center disabled:pointer-events-none disabled:opacity-50"
+          class="hs-collapse-toggle flex size-8 items-center justify-center disabled:pointer-events-none disabled:opacity-50"
+          id="hs-navbar-example-collapse"
+          aria-expanded="false"
+          aria-controls="hs-navbar-example"
           aria-label="Toggle navigation"
+          data-hs-collapse="#hs-navbar-example"
         >
           <svg
             class="hs-collapse-open:hidden size-6 shrink-0"
@@ -59,7 +63,11 @@ import Button from "./Button.astro";
     </div>
 
     <!-- Collapse -->
-    <div class="hidden grow basis-full overflow-hidden lg:block">
+    <div
+      id="hs-navbar-example"
+      class="hs-collapse hidden grow basis-full overflow-hidden transition-all duration-300 lg:block"
+      aria-labelledby="hs-navbar-example-collapse"
+    >
       <nav
         class="flex flex-col py-2 font-medium text-black md:flex-row md:items-center md:justify-end md:gap-8 md:py-4 md:text-base"
       >
@@ -100,38 +108,80 @@ import Button from "./Button.astro";
     </div>
     <!-- Collapse End -->
   </div>
-</header>
 
-<script>
-  const getElement = function <T extends HTMLElement>(
-    selector: string,
-    type: { new (): T }
-  ): T {
-    const element = document.getElementById(selector);
-    if (!element)
-      throw new Error(`Element with selector "${selector}" not found.`);
-    if (element instanceof type) return element as T;
-    throw new Error(
-      `Element with selector "${selector}" is not of expected type ${type.name}.`
+  <script>
+    const getElement = function <T extends HTMLElement>(
+      selector: string,
+      type: { new (): T }
+    ): T {
+      const element = document.getElementById(selector);
+      if (!element)
+        throw new Error(`Element with selector "${selector}" not found.`);
+      if (element instanceof type) return element as T;
+      throw new Error(
+        `Element with selector "${selector}" is not of expected type ${type.name}.`
+      );
+    };
+
+    const navScrollTo = function (
+      event: Event,
+      selector: string,
+      behavior: ScrollBehavior = "smooth",
+      offset: { top?: number; left?: number } = {}
+    ) {
+      const { target } = event;
+
+      if (!(target instanceof HTMLElement)) return;
+
+      if (!target.matches(selector)) return;
+
+      event.preventDefault();
+
+      const id = target.getAttribute("href");
+      if (!id || !id.startsWith("#")) {
+        console.error(`Invalid or missing href attribute: ${id}`);
+        return;
+      }
+
+      const element = document.querySelector(id);
+      if (!element) {
+        console.error(`Element with ID '${id}' not found in the document`);
+        return;
+      }
+
+      const coords = element.getBoundingClientRect();
+      const scrollY = window.scrollY || window.pageYOffset;
+      const scrollX = window.scrollX || window.pageXOffset;
+
+      window.scrollTo({
+        top: coords.top + scrollY + (offset.top || 0),
+        left: coords.left + scrollX + (offset.left || 0),
+        behavior,
+      });
+    };
+
+    const header = getElement<HTMLElement>("header", HTMLElement);
+
+    const headerHeight = header.offsetHeight + 56;
+
+    header.addEventListener("click", event =>
+      navScrollTo(event, "a", "smooth", { top: -headerHeight })
     );
-  };
 
-  const header = getElement<HTMLElement>("header", HTMLElement);
+    const trigger = getElement<HTMLDivElement>("trigger", HTMLDivElement);
 
-  const headerHeight = header.offsetHeight;
+    const stickyNav = function (entries: IntersectionObserverEntry[]) {
+      const [entry] = entries;
 
-  const stickyNav = function (entries: IntersectionObserverEntry[]) {
-    const [entry] = entries;
+      if (!entry.isIntersecting) header.classList.remove("pt-4");
+      else header.classList.add("pt-4");
+    };
 
-    if (!entry.isIntersecting) header.classList.add("sticky");
-    else header.classList.remove("sticky");
-  };
+    const headerObserver = new IntersectionObserver(stickyNav, {
+      root: null,
+      threshold: 0,
+    });
 
-  const headerObserver = new IntersectionObserver(stickyNav, {
-    root: null,
-    threshold: 0,
-    rootMargin: `-${headerHeight}px`,
-  });
-
-  headerObserver.observe(header);
-</script>
+    headerObserver.observe(trigger);
+  </script>
+</header>

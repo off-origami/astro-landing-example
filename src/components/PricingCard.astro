@@ -3,7 +3,7 @@ import Button from "./Button.astro";
 
 interface Props {
   planName: string;
-  price?: number;
+  price?: { monthly: number; annually: number };
   features: string[];
 }
 
@@ -15,7 +15,9 @@ const { planName, price = 0, features } = Astro.props;
 >
   <p class="mb-3 text-2xl font-medium sm:text-3xl">{planName}</p>
   <div class="mb-3 inline-flex items-center font-medium">
-    <span class="text-4xl sm:text-5xl">{price ? `$${price}` : "Custom"}</span>
+    <span class="text-4xl sm:text-5xl"
+      >{price ? `$${price.annually}` : "Custom"}</span
+    >
     <div class="text-text-base ml-3 text-lg font-normal">
       <p class="block">{price ? "/month" : ""}</p>
       <p class="hidden">{price ? "/year" : ""}</p>

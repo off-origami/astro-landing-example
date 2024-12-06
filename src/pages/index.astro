@@ -1,0 +1,475 @@
+---
+import FAQ from "@components/FAQ.astro";
+import Button from "../components/Button.astro";
+import FeaturesCard from "../components/FeaturesCard.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import HeaderSection from "../components/HeaderSection.astro";
+import HowCard from "../components/HowCard.astro";
+import Images from "../components/Images.astro";
+import InputField from "../components/InputField.astro";
+import PricingCard from "../components/PricingCard.astro";
+import TestimonialCard from "../components/TestimonialCard.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <Header />
+  <main class="mx-auto px-4 md:max-w-[69rem]">
+    <!-- Hero Section -->
+    <section
+      id="hero"
+      class="relative mb-16 pt-32 before:absolute before:bottom-0 before:left-0 before:right-0 before:z-10 before:h-32 before:bg-gradient-to-t before:from-white before:content-[''] sm:pt-48 lg:mb-24"
+    >
+      <div class="flex flex-col items-center gap-6 text-center lg:gap-8">
+        <h1
+          class="max-w-sm text-3xl font-medium leading-tight text-black sm:max-w-lg sm:text-5xl sm:leading-tight md:max-w-3xl md:text-6xl md:leading-tight lg:text-[4rem] lg:leading-tight"
+        >
+          Build High-Converting Webpages in Minutes
+        </h1>
+        <p
+          class="max-w-sm text-lg sm:max-w-lg md:max-w-2xl lg:max-w-2xl lg:text-xl"
+        >
+          An intuitive platform for marketing teams to build, test, and optimize
+          webpages without coding.
+        </p>
+        <div class="flex flex-col items-center gap-7">
+          <div class="mt-2 flex flex-col gap-4 md:flex-row">
+            <Button id="cta" link="#login" text="Get started" />
+            <Button link="#" variant="secondary" text="Live Demo" />
+          </div>
+          <div class="flex items-center gap-3">
+            <Images src="/src/assets/images/users.webp" alt="" height={42} />
+
+            <small class="text-left text-sm font-medium text-black sm:text-base"
+              >Trusted by <span class="text-text-accent">1,500+ marketers</span
+              ></small
+            >
+          </div>
+        </div>
+        <div class="bg-surface mt-4 rounded-t-xl p-3 sm:rounded-t-3xl">
+          <Images src="/src/assets/images/dashboard.png" alt="" />
+        </div>
+      </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Customers Section -->
+    <section class="animate mb-32 sm:mb-48">
+      <div class="flex flex-col gap-10">
+        <small
+          class="text-center text-base font-semibold uppercase tracking-wider md:text-sm"
+          >As featured in</small
+        >
+        <div
+          class="mx-auto grid grid-cols-1 justify-items-center gap-y-12 opacity-60 brightness-0 md:grid-cols-2 md:gap-16 lg:flex lg:items-center lg:justify-between lg:gap-12"
+        >
+          <Images
+            src="/src/assets/images/logos/usa-today.webp"
+            alt="USA Today logo"
+            height={28}
+          />
+
+          <Images
+            src="/src/assets/images/logos/forbes.webp"
+            alt="Forbes logo"
+            height={28}
+          />
+
+          <Images
+            src="/src/assets/images/logos/tech-crunch.webp"
+            alt="Teach Crunch logo"
+            height={28}
+          />
+
+          <Images
+            src="/src/assets/images/logos/new-york-times.webp"
+            alt="New York Times logo"
+            height={28}
+          />
+        </div>
+      </div>
+    </section>
+    <!-- Customers Section End -->
+
+    <!-- How It Works Section -->
+    <section id="how" class="animate mb-32 sm:mb-48">
+      <HeaderSection
+        name="How it works"
+        title="Create, test, optimize in 3 simple steps"
+        description="Building and refining your marketing pages has never been easier."
+      />
+
+      <div
+        class="relative mx-auto mt-[4.75rem] flex flex-col gap-[4.5rem] before:absolute before:left-1/2 before:top-0 before:-z-10 before:h-full before:w-1 before:-translate-x-1/2 before:bg-gray-300 sm:mt-20 sm:max-w-lg sm:gap-[5.5rem] md:max-w-full lg:mt-24 lg:max-w-full lg:gap-[6.5rem]"
+      >
+        <HowCard
+          items={[
+            {
+              title: "Build your page",
+              description:
+                "Choose a high-converting template or design a custom page using the drag-and-drop builder. Add text, images, forms, and CTAs — all without coding.",
+              image: "/src/assets/images/app/builder.png",
+              alt: "",
+            },
+            {
+              title: "Test and gather feedback",
+              description:
+                "After publishing your page, run A/B tests to gather insights. Experiment with different headlines, layouts, images, and CTAs.",
+              image: "/src/assets/images/app/test.png",
+              alt: "",
+              animation: "animate",
+            },
+            {
+              title: "Refine and optimize",
+              description:
+                "Use test results to improve your page. Adjust design, messaging, or CTAs based on real insights. Keep iterating until you've perfected it.",
+              image: "/src/assets/images/app/optimize.png",
+              alt: "",
+              animation: "animate",
+            },
+          ]}
+        />
+      </div>
+    </section>
+    <!-- How It Works Section End -->
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="animate b-32 sm:mb-48">
+      <HeaderSection
+        name="Testimonials"
+        title="Once You Try It, You Won't Go Back"
+        description="Our customers love how fast they can create, test, and refine marketing pages — no developers needed."
+      />
+
+      <div
+        class="mx-auto mt-12 grid max-w-lg grid-cols-1 gap-6 lg:mt-16 lg:max-w-max lg:grid-cols-3 lg:gap-8"
+      >
+        <TestimonialCard
+          items={[
+            {
+              name: "Sarah",
+              image: "/src/assets/images/customers/sarah.webp",
+              alt: "",
+              job: "Growth Marketing Lead",
+              testimonial:
+                "With real-time feedback and A/B testing, we now iterate twice as fast and optimize campaigns in record time.",
+            },
+            {
+              name: "David",
+              image: "/src/assets/images/customers/david.webp",
+              alt: "",
+              job: "Head of Marketing",
+              testimonial:
+                "A/B testing with Pagegen helped us quickly identify what works. A few simple tweaks boosted conversions by 40%.",
+            },
+            {
+              name: "John",
+              image: "/src/assets/images/customers/john.webp",
+              alt: "",
+              job: "Digital Marketing",
+              testimonial:
+                "We cut our development time in half with the drag-and-drop builder — now our marketing team can create pages on their own",
+            },
+          ]}
+        />
+      </div>
+    </section>
+    <!-- Testimonials Section End -->
+
+    <!-- Features Section -->
+    <section id="features" class="animate mb-32 sm:mb-48">
+      <HeaderSection
+        name="Features"
+        title="Built for Marketing Success"
+        description="Pagegen blends ease of use with robust testing tools for high-impact marketing."
+      />
+
+      <div
+        class="mx-auto mt-12 grid max-w-[21.125rem] grid-cols-3 gap-6 md:max-w-full lg:mt-16 lg:gap-8"
+      >
+        <FeaturesCard
+          title="Analytics"
+          description="Track conversion metrics."
+          image="/src/assets/images/app/analytics.png"
+          alt=""
+        />
+
+        <FeaturesCard
+          title="Localization"
+          description="Easily create localized versions of your pages to reach different markets."
+          image="/src/assets/images/app/localization.png"
+          alt=""
+          colSpan={2}
+        />
+
+        <FeaturesCard
+          title="Collaboration"
+          description="Collaborate effortlessly with your team — designers, writers, or marketers — all in real-time."
+          image="/src/assets/images/app/collaboration.png"
+          alt=""
+          colSpan={2}
+        />
+
+        <FeaturesCard
+          title="SEO"
+          description="Optimize your pages for search engines."
+          image="/src/assets/images/app/seo.png"
+          alt=""
+        />
+      </div>
+    </section>
+    <!-- Features Section End -->
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="animate mb-32 sm:mb-48">
+      <HeaderSection
+        name="Pricing"
+        title="Get Results Without Breaking the Bank"
+        description="Flexible pricing plans built to scale with your business. Whether you're just starting out or need enterprise-level solutions, we've got a plan for you."
+      />
+
+      <div class="mt-12 flex justify-center">
+        <button
+          class="bg-button-secondary mt-10 flex cursor-default gap-1.5 rounded-xl p-0"
+        >
+          <fieldset class="relative flex min-w-8 px-1.5 py-1.5">
+            <input
+              class="peer/monthly absolute w-0 opacity-0"
+              type="radio"
+              name="billing"
+              value="monthly"
+              id="monthly"
+            />
+            <label
+              class="peer-checked/monthly:bg-button-primary inline-block cursor-pointer rounded-md px-3 py-2 text-base font-medium text-black peer-checked/monthly:text-white"
+              for="monthly">Monthly</label
+            >
+            <input
+              class="peer/annually absolute w-0 opacity-0"
+              type="radio"
+              name="billing"
+              value="annually"
+              id="annually"
+              checked
+            />
+            <label
+              class="peer-checked/annually:bg-button-primary relative inline-block cursor-pointer rounded-md px-3 py-2 text-base font-medium text-black peer-checked/annually:text-white"
+              for="annually"
+              >Annually
+              <span
+                class="absolute -start-20 -top-16 sm:-end-28 sm:-top-12 sm:start-auto"
+              >
+                <span class="flex scale-x-[-1] items-center sm:scale-x-[1]">
+                  <svg
+                    class="-me-6 h-8 w-14"
+                    width="45"
+                    height="25"
+                    viewBox="0 0 45 25"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M43.2951 3.47877C43.8357 3.59191 44.3656 3.24541 44.4788 2.70484C44.5919 2.16427 44.2454 1.63433 43.7049 1.52119L43.2951 3.47877ZM4.63031 24.4936C4.90293 24.9739 5.51329 25.1423 5.99361 24.8697L13.8208 20.4272C14.3011 20.1546 14.4695 19.5443 14.1969 19.0639C13.9242 18.5836 13.3139 18.4152 12.8336 18.6879L5.87608 22.6367L1.92723 15.6792C1.65462 15.1989 1.04426 15.0305 0.563943 15.3031C0.0836291 15.5757 -0.0847477 16.1861 0.187863 16.6664L4.63031 24.4936ZM43.7049 1.52119C32.7389 -0.77401 23.9595 0.99522 17.3905 5.28788C10.8356 9.57127 6.58742 16.2977 4.53601 23.7341L6.46399 24.2659C8.41258 17.2023 12.4144 10.9287 18.4845 6.96211C24.5405 3.00476 32.7611 1.27399 43.2951 3.47877L43.7049 1.52119Z"
+                      fill="currentColor"
+                      class="fill-text-base"></path>
+                  </svg>
+                  <span
+                    class="bg-surface-accent mt-3 inline-block scale-x-[-1] whitespace-nowrap rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase leading-5 tracking-wide text-black sm:scale-x-[1]"
+                    >Save up to 10%</span
+                  >
+                </span>
+              </span>
+            </label>
+            <!-- Switch End -->
+          </fieldset>
+        </button>
+      </div>
+      <!-- Switch -->
+
+      <div
+        class="mx-auto mt-9 grid max-w-[21.125rem] grid-cols-1 gap-6 sm:max-w-lg lg:max-w-full lg:grid-cols-3 lg:gap-8"
+      >
+        <PricingCard
+          planName="Basic"
+          price={{ monthly: 14, annually: 12 }}
+          features={[
+            "Custom domain",
+            "Up to 150 pages",
+            "15 A/B test variations",
+            "500 form submissions",
+            "Analytics",
+            "Localization",
+            "2 team members",
+            "15 GB bandwidth",
+          ]}
+        />
+
+        <PricingCard
+          planName="Pro"
+          price={{ monthly: 29, annually: 23 }}
+          features={[
+            "Custom domain",
+            "Up to 300 pages",
+            "30 A/B test variations",
+            "1000 form submissions",
+            "Analytics",
+            "Localization",
+            "6 team members",
+            "30 GB bandwidth",
+          ]}
+        />
+
+        <PricingCard
+          planName="Enterprise"
+          features={[
+            "Unlimited users",
+            "Enterprise-level scale",
+            "Advanced collaboration",
+            "Guaranteed uptime",
+            "Enterprise security",
+            "Enterprise support",
+          ]}
+        />
+      </div>
+      <p
+        class="mx-auto mt-6 text-center text-sm text-black sm:max-w-lg lg:mt-12"
+      >
+        Available payment methods are credit card, PayPal or SEPA direct debit
+        (EUR only). All prices are exclusive of any applicable sales taxes such
+        as VAT.
+      </p>
+    </section>
+    <!-- Pricing Section End -->
+
+    <!-- FAQ Section -->
+    <section id="faq" id="contact" class="animate mb-32 sm:mb-48">
+      <HeaderSection
+        name="FAQ"
+        title="Your questions, answered"
+        description="Answers to the most frequently asked questions."
+      />
+
+      <div
+        id="cards"
+        class="mx-auto mt-12 max-w-[21.125rem] sm:max-w-lg lg:mt-16 lg:max-w-2xl"
+      >
+        <!-- Accordion -->
+        <div class="hs-accordion-group">
+          <FAQ
+            items={[
+              {
+                question: "Do I need any coding experience to use Pagegen?",
+                answer:
+                  "No, Pagegen is designed for marketers with no coding experience. Our drag-and-drop builder makes it easy to create professional, high-converting webpages without writing a single line of code.",
+              },
+              {
+                question: "Can I run A/B tests on my pages?",
+                answer:
+                  "Absolutely! Pagegen includes built-in A/B testing tools that allow you to experiment with different headlines, images, and CTAs. You can easily see which version of your page performs best.",
+              },
+              {
+                question: "What kind of support do you offer?",
+                answer:
+                  "We offer 24/7 customer support via chat and email. Additionally, you'll have access to a knowledge base with tutorials, guides, and tips to help you make the most of Pagegen.",
+              },
+              {
+                question: "Is Pagegen optimized for mobile devices?",
+                answer:
+                  "Yes, all pages built with Pagegen are automatically mobile-responsive, ensuring they look great and load fast on any device, whether desktop, tablet, or smartphone.",
+              },
+              {
+                question: "How does the free demo work?",
+                answer:
+                  "We offer a free demo with full access to all features. No credit card is required to start the demo.",
+              },
+              {
+                question: "What happens if I need to upgrade my plan?",
+                answer:
+                  "Upgrading your plan is simple. You can switch to a higher-tier plan anytime through your account dashboard, and your new features will be activated immediately.",
+              },
+            ]}
+          />
+        </div>
+        <!-- End Accordion -->
+      </div>
+      <!-- End Accordion -->
+    </section>
+    <!-- FAQ Section End -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="animate mb-32 sm:mb-48">
+      <div
+        class="from-surface-form-from to-surface-form-to text-text-form shadow-custom2 mx-auto mt-8 grid items-start overflow-hidden rounded-xl bg-gradient-to-br sm:max-w-lg sm:rounded-3xl lg:max-w-full lg:grid-cols-[2fr_1fr]"
+      >
+        <div class="p-6 sm:px-9 sm:py-[1.625rem] lg:px-12 lg:py-8">
+          <h3
+            class="mb-10 mt-2 text-xl font-semibold sm:mt-4 sm:text-3xl lg:mt-1"
+          >
+            Join 1,500+ marketers who are building, testing, and optimizing
+            their webpages effortlessly.
+          </h3>
+          <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:mb-4 lg:grid-cols-2">
+            <InputField
+              labelName="Full Name"
+              id="full-name"
+              type="text"
+              placeholder="John Smith"
+              name="full-name"
+              required
+            />
+
+            <InputField
+              labelName="Email address"
+              id="email"
+              type="email"
+              placeholder="me@example.com"
+              name="email"
+              required
+            />
+
+            <div class="flex flex-col gap-2">
+              <label for="select-where" class="text-base font-semibold"
+                >How did you discover Pagegen?</label
+              >
+              <select
+                name="select-where"
+                id="select-where"
+                class="bg-surface rounded-lg px-4 py-3"
+                required
+              >
+                <option value="">Please choose one option:</option>
+                <option value="friends">Friends and family</option>
+                <option value="youtube">YouTube video</option>
+                <option value="podcast">Podcast</option>
+                <option value="ad">Facebook ad</option>
+                <option value="others">Others</option>
+              </select>
+            </div>
+            <button
+              class="bg-text-form mt-2 flex items-center justify-center self-end rounded-lg px-5 py-[0.688rem] text-lg font-normal tracking-wide text-white transition-colors duration-[250ms] ease-in-out hover:bg-white hover:font-medium hover:text-black sm:mt-3 lg:mt-0"
+              >Sign up now</button
+            >
+          </div>
+        </div>
+
+        <div
+          class="relative row-start-1 flex h-[16rem] overflow-hidden sm:h-80 lg:col-start-2 lg:max-h-full lg:min-h-full lg:min-w-full lg:max-w-full"
+        >
+          <div
+            class="before:bg-text-accent before:absolute before:bottom-0 before:left-0 before:z-10 before:h-full before:w-full before:opacity-30 before:content-['']"
+          >
+            <Images
+              src="/src/assets/images/email.jpg"
+              alt=""
+              classes="max-h-full min-h-full min-w-full max-w-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section End -->
+  </main>
+  <div id="trigger" class="absolute top-0 h-px"></div>
+  <Footer />
+</Layout>

@@ -27,7 +27,7 @@ const { items } = Astro.props;
           <h3 class="mb-3 mt-6 text-2xl font-medium text-black sm:text-3xl md:mb-6 md:mt-0">
             {item.title}
           </h3>
-          <p class="text-lg">{item.description}</p>
+          <p>{item.description}</p>
         </div>
         <div class="mx-4 mb-4 flex items-center justify-center overflow-hidden rounded-xl md:m-4">
           <Images src={`${item.image}`} alt={item.alt} height={380} />

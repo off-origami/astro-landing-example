@@ -6,6 +6,7 @@
 !/public
 !/.github
 !tsconfig.json
+!tailwind.config.mjs
 !astro.config.mjs
 !package.json
 !.prettierrc.mjs
