@@ -18,7 +18,7 @@ const { items } = Astro.props;
 
 {
   items.map(item => (
-    <figure class="bg-surface flex flex-col gap-4 rounded-xl px-6 py-4 sm:rounded-3xl sm:px-9 sm:py-[1.625rem]">
+    <figure class="flex flex-col gap-4 rounded-xl bg-surface px-6 py-4 sm:rounded-3xl sm:px-9 sm:py-[1.625rem]">
       <div class="flex items-center gap-4">
         <Images
           src={`${item.image}`}
@@ -26,11 +26,11 @@ const { items } = Astro.props;
           classes="rounded-full h-16 w-16"
         />
         <div class="flex flex-col">
-          <p class="text-xl font-semibold text-black">{item.name}</p>
-          <small class="text-base">{item.job}</small>
+          <p class="text-xl font-bold text-black">{item.name}</p>
+          <small class="text-sm">{item.job}</small>
         </div>
       </div>
-      <blockquote class="text-lg">{item.testimonial}</blockquote>
+      <blockquote>{item.testimonial}</blockquote>
     </figure>
   ))
 }

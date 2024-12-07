@@ -31,9 +31,27 @@ export default {
           accent: "#FFCC91",
         },
       },
-
       fontFamily: {
-        sans: ["Outfit", "ui-sans-serif", "system-ui"],
+        sans: ["Satoshi", "sans-serif", "ui-sans-serif", "system-ui"],
+      },
+      fontSize: {
+        sm: "1.025rem",
+        base: "1.063rem",
+        lg: "1.125rem",
+        xl: "1.313rem",
+        "2xl": "1.5rem",
+        "3xl": "1.875rem",
+        "4xl": "2.25rem",
+        "5xl": "3rem",
+      },
+      letterSpacing: {
+        tightest: "-.05em",
+        tighter: "-.025em",
+        tight: "0",
+        normal: ".025em",
+        wide: ".05em",
+        wider: ".07em",
+        widest: ".16em",
       },
       boxShadow: {
         custom1: "0 1px 0 #495057",

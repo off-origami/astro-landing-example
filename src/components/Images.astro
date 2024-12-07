@@ -29,6 +29,9 @@ if (!images[src])
   throw new Error(
     `"${src}" does not exist in glob: "src/assets/**/*.{jpeg,jpg,png,gif,webp}"`
   );
+
+// const imageModule = await images[src]();
+// const imageMetadata = imageModule.default;
 ---
 
 <Image
@@ -37,6 +40,6 @@ if (!images[src])
   {width}
   {height}
   {quality}
-  densities={[1.5, 2]}
+  widths={[512, 768, 1024, 1600]}
   class:list={classes}
 />

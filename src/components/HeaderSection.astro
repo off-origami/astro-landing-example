@@ -10,15 +10,17 @@ const { name, title, description } = Astro.props;
 
 <div class="flex flex-col items-center gap-6 lg:gap-8">
   <span
-    class="bg-button-secondary rounded-full px-5 py-2 text-xs font-medium uppercase tracking-widest text-black sm:text-sm"
+    class="rounded-full bg-button-secondary px-5 py-2 text-xs font-medium uppercase tracking-wider text-black sm:text-sm"
     >{name}</span
   >
   <h2
-    class="text-center text-3xl font-medium text-black sm:max-w-lg sm:text-5xl md:max-w-full lg:text-5xl"
+    class="text-center text-3xl font-medium tracking-tight text-black sm:max-w-lg sm:text-5xl md:max-w-full lg:text-5xl"
   >
     {title}
   </h2>
-  <p class="text-center text-xl sm:max-w-lg md:max-w-xl lg:max-w-full">
+  <p
+    class="text-center text-base sm:max-w-lg sm:text-lg md:max-w-xl lg:max-w-full lg:text-xl"
+  >
     {description}
   </p>
 </div>

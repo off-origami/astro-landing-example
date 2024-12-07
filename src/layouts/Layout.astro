@@ -52,15 +52,10 @@ const schemaData = {
     <!-- Google JSON-LD Structured data -->
     <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
 
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Font -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:ital,wght@0,400;0,500;0,600;&display=swap"
-      rel="preload"
-      as="style"
-      onload="this.onload=null; this.rel='stylesheet';"
-      crossorigin
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap"
+      rel="stylesheet"
     />
 
     {
@@ -75,7 +70,9 @@ const schemaData = {
       )
     }
   </head>
-  <body class="text-lg">
+  <body
+    class="text-base leading-snug tracking-normal sm:text-lg lg:leading-normal"
+  >
     <slot />
   </body>
 </html>

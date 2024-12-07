@@ -14,17 +14,17 @@ const { items } = Astro.props;
 {
   items.map((item, index) => (
     <div
-      class={`${index === 0 ? "active" : ""} hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-6`}
+      class={`${index === 0 ? "active" : ""} hs-accordion rounded-xl px-6 py-4 hs-accordion-active:bg-surface sm:rounded-2xl`}
       id={`hs-basic-with-title-and-arrow-stretched-heading ${index + 1}`}
     >
       <button
-        class="hs-accordion-toggle hover:text-button-primary focus:text-button-primary group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-semibold text-black transition md:text-lg"
+        class="hs-accordion-toggle group inline-flex w-full items-center justify-between gap-x-3 rounded-lg pb-3 text-start font-bold text-black transition hover:text-button-primary focus:text-button-primary md:text-lg"
         aria-expanded={index === 0 ? "true" : "false"}
         aria-controls={`hs-basic-with-title-and-arrow-stretched-collapse ${index + 1}`}
       >
         {item.question}
         <svg
-          class="hs-accordion-active:hidden group-hover:text-button-primary group-focus:text-button-primary block size-5 shrink-0 text-gray-600"
+          class="block size-5 shrink-0 text-gray-600 group-hover:text-button-primary group-focus:text-button-primary hs-accordion-active:hidden"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -38,7 +38,7 @@ const { items } = Astro.props;
           <path d="m6 9 6 6 6-6" />
         </svg>
         <svg
-          class="hs-accordion-active:block group-hover:text-button-primary group-focus:text-button-primary hidden size-5 shrink-0 text-gray-600"
+          class="hidden size-5 shrink-0 text-gray-600 group-hover:text-button-primary group-focus:text-button-primary hs-accordion-active:block"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
