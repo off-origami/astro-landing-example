@@ -3,11 +3,12 @@ import Button from "./Button.astro";
 
 interface Props {
   planName: string;
-  price?: { monthly: number; annually: number };
+  currency?: string;
+  dataset?: { monthly: number; annually: number };
   features: string[];
 }
 
-const { planName, price = 0, features } = Astro.props;
+const { planName, dataset, features, currency = "$" } = Astro.props;
 ---
 
 <div
@@ -15,13 +16,17 @@ const { planName, price = 0, features } = Astro.props;
 >
   <p class="mb-3 text-2xl font-medium sm:text-3xl">{planName}</p>
   <div class="mb-3 inline-flex items-center font-medium">
-    <span class="text-4xl sm:text-5xl"
-      >{price ? `$${price.annually}` : "Custom"}</span
+    <span
+      class="price text-4xl sm:text-5xl"
+      data-price-monthly={currency + dataset?.monthly}
+      data-price-annually={currency + dataset?.annually}
+      >{dataset ? `$${dataset.annually}` : "Custom"}</span
     >
-    <div class="ml-3 text-lg font-normal text-text-base">
-      <p class="block">{price ? "/month" : ""}</p>
-      <p class="hidden">{price ? "/year" : ""}</p>
-    </div>
+    <p
+      class={`price-month text-text-base font-normal ml-3 text-lg ${dataset ? "" : "hidden"}`}
+    >
+      /year
+    </p>
   </div>
 
   <Button link="#contact" text="Get plan" size="medium" classes="mt-4" />

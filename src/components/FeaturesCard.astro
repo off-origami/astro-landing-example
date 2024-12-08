@@ -1,7 +1,7 @@
 ---
 import Images from "../components/Images.astro";
 
-interface Props {
+interface Item {
   title: string;
   description: string;
   image: string;
@@ -9,7 +9,11 @@ interface Props {
   colSpan?: 1 | 2 | 3;
 }
 
-const { title, description, image, alt, colSpan = 1 } = Astro.props;
+interface Props {
+  items: Item[];
+}
+
+const { items } = Astro.props;
 const getColSpan = (colSpan: 1 | 2 | 3) => {
   const colSpanClasses = {
     1: "md:col-span-1",
@@ -21,18 +25,20 @@ const getColSpan = (colSpan: 1 | 2 | 3) => {
 };
 ---
 
-<div
-  class={`bg-surface rounded-xl sm:rounded-3xl col-span-full ${getColSpan(colSpan)}`}
->
-  <div class="p-[1rem_1.5rem_1.5rem_1.5rem] sm:px-9 sm:py-[1.625rem]">
-    <h3 class="mb-3 text-2xl font-medium text-black sm:text-3xl md:mb-4">
-      {title}
-    </h3>
-    <p>{description}</p>
-  </div>
-  <div
-    class="mx-4 mb-4 flex items-center justify-center overflow-hidden rounded-xl"
-  >
-    <Images src={`${image}`} {alt} height={380} />
-  </div>
-</div>
+{
+  items.map(item => (
+    <div
+      class={`col-span-full rounded-xl bg-surface sm:rounded-3xl ${getColSpan(item.colSpan || 1)}`}
+    >
+      <div class="p-[1rem_1.5rem_1.5rem_1.5rem] sm:px-9 sm:py-[1.625rem]">
+        <h3 class="mb-3 text-2xl font-medium text-black sm:text-3xl md:mb-4">
+          {item.title}
+        </h3>
+        <p>{item.description}</p>
+      </div>
+      <div class="mx-4 mb-4 flex items-center justify-center overflow-hidden rounded-xl">
+        <Images src={item.image} alt={item.alt} height={380} />
+      </div>
+    </div>
+  ))
+}
