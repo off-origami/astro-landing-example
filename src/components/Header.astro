@@ -11,7 +11,7 @@ import Button from "./Button.astro";
   >
     <div class="flex items-center justify-between">
       <!-- Logo -->
-      <a href="#"
+      <a href="/"
         ><img src="logo.svg" alt="Company Logo" class="h-11 w-auto" /></a
       >
       <!-- Logo End -->
@@ -150,8 +150,8 @@ import Button from "./Button.astro";
       }
 
       const coords = element.getBoundingClientRect();
-      const scrollY = window.scrollY || window.pageYOffset;
-      const scrollX = window.scrollX || window.pageXOffset;
+      const scrollY = window.scrollY || window.scrollY;
+      const scrollX = window.scrollX || window.scrollX;
 
       window.scrollTo({
         top: coords.top + scrollY + (offset.top || 0),
