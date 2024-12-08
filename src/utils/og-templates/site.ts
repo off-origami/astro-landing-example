@@ -30,7 +30,7 @@ export default async () => {
       height: 630,
       embedFont: true,
       fonts: await loadGoogleFont(
-        SITE.title + SITE.description + SITE.url,
+        SITE.title + SITE.description + SITE.canonicalURL,
         fontsConfig
       ),
     }
