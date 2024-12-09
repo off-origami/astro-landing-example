@@ -1,35 +1,32 @@
 ---
+import socialIcons from "@assets/socialIcons";
+import { SOCIALS } from "@config";
+
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="border-t-surface-border border-t-[1px] py-32 text-base">
+<footer class="border-t-[1px] border-t-surface-border py-32 text-base">
   <div
     class="mx-auto grid grid-cols-2 gap-x-8 gap-y-10 px-4 sm:grid-cols-6 sm:gap-x-16 sm:gap-y-16 md:max-w-[69rem] lg:grid-cols-[1.5fr_1.5fr_1fr_1fr_1fr] lg:gap-y-0"
   >
     <!-- Logo Start and Socials -->
     <div class="flex flex-col gap-8 sm:col-span-3 lg:col-span-1">
-      <a href="#"><img src="logo.svg" class="h-11 w-auto" /></a>
+      <a href="/"><img src="logo.svg" class="h-11 w-auto" /></a>
       <ul class="flex gap-6">
-        <li>
-          <a href="#"
-            ><svg
-              class="fill-text-base hover:fill-button-primary size-6 transition-colors"
-            >
-              <use href="/social.svg#github"></use>
-            </svg></a
-          >
-        </li>
-        <li>
-          <a href="#"
-            ><svg
-              class="fill-text-base hover:fill-button-primary size-6 transition-colors"
-            >
-              <use href="/social.svg#linkedin"></use>
-            </svg></a
-          >
-        </li>
+        {
+          SOCIALS.filter(social => social.active).map(social => (
+            <li>
+              <a href={social.href} title={social.linkTitle}>
+                <svg class="size-8 fill-text-base transition-colors hover:fill-button-primary">
+                  <Fragment set:html={socialIcons[social.name]} />
+                </svg>
+              </a>
+            </li>
+          ))
+        }
       </ul>
-      <p class="mt-auto text-sm text-black">
+
+      <p class="mt-auto text-[0.875rem] text-black">
         Copyright &copy; {currentYear} by pagegen, Inc. All rights reserved.
       </p>
     </div>
@@ -44,12 +41,12 @@ const currentYear = new Date().getFullYear();
         <div class="flex flex-col items-start gap-4">
           <a
             href="tel:619-863-8948"
-            class="shadow-custom1 hover:text-button-primary pb-px transition-all hover:shadow-none"
+            class="pb-px shadow-custom1 transition-all hover:text-button-primary hover:shadow-none"
             >619-863-8948</a
           >
           <a
             href="mailto:hello@pagegen.com"
-            class="shadow-custom1 hover:text-button-primary pb-px transition-all hover:shadow-none"
+            class="pb-px shadow-custom1 transition-all hover:text-button-primary hover:shadow-none"
             >hello@pagegen.com</a
           >
         </div>
@@ -61,12 +58,12 @@ const currentYear = new Date().getFullYear();
       <p class="mb-4 text-lg font-medium text-black sm:mb-10">Account</p>
       <ul class="flex flex-col gap-4">
         <li>
-          <a href="#" class="hover:text-button-primary transition-colors"
+          <a href="#" class="transition-colors hover:text-button-primary"
             >Create account</a
           >
         </li>
         <li>
-          <a href="#" class="hover:text-button-primary transition-colors"
+          <a href="#" class="transition-colors hover:text-button-primary"
             >Login</a
           >
         </li>
@@ -78,22 +75,22 @@ const currentYear = new Date().getFullYear();
       <p class="mb-4 text-lg font-medium text-black sm:mb-10">Company</p>
       <ul class="flex flex-col gap-4">
         <li>
-          <a href="#" class="hover:text-button-primary transition-colors"
+          <a href="#" class="transition-colors hover:text-button-primary"
             >About</a
           >
         </li>
         <li>
-          <a href="#" class="hover:text-button-primary transition-colors"
+          <a href="#" class="transition-colors hover:text-button-primary"
             >Careers</a
           >
         </li>
         <li>
-          <a href="#" class="hover:text-button-primary transition-colors"
+          <a href="#" class="transition-colors hover:text-button-primary"
             >For Business</a
           >
         </li>
         <li>
-          <a href="#" class="hover:text-button-primary transition-colors"
+          <a href="#" class="transition-colors hover:text-button-primary"
             >Partners</a
           >
         </li>
@@ -105,27 +102,27 @@ const currentYear = new Date().getFullYear();
       <p class="mb-4 text-lg font-medium text-black sm:mb-10">Resources</p>
       <ul class="flex flex-col gap-4">
         <li>
-          <a href="#" class="hover:text-button-primary transition-colors"
+          <a href="#" class="transition-colors hover:text-button-primary"
             >Help center</a
           >
         </li>
         <li>
-          <a href="#" class="hover:text-button-primary transition-colors"
+          <a href="#" class="transition-colors hover:text-button-primary"
             >Terms of Service</a
           >
         </li>
         <li>
-          <a href="#" class="hover:text-button-primary transition-colors"
+          <a href="#" class="transition-colors hover:text-button-primary"
             >Privacy policy</a
           >
         </li>
         <li>
-          <a href="#" class="hover:text-button-primary transition-colors"
+          <a href="#" class="transition-colors hover:text-button-primary"
             >Cookie policy</a
           >
         </li>
         <li>
-          <a href="#" class="hover:text-button-primary transition-colors"
+          <a href="#" class="transition-colors hover:text-button-primary"
             >Sitemap</a
           >
         </li>

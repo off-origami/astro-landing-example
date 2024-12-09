@@ -5,13 +5,13 @@ import { loadGoogleFont } from "../loadGoogleFont";
 
 const fontsConfig: FontConfig[] = [
   {
-    name: "Roboto",
-    font: "Roboto",
+    name: "Plus Jakarta Sans",
+    font: "Plus+Jakarta+Sans",
     weight: 400,
   },
   {
-    name: "Roboto",
-    font: "Roboto:wght@700",
+    name: "Plus Jakarta Sans",
+    font: "Plus+Jakarta+Sans:wght@700",
     weight: 700,
   },
 ];
@@ -21,8 +21,62 @@ export default async () => {
     {
       type: "div",
       props: {
-        children: "hello, world",
-        style: { color: "black" },
+        style: {
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100%",
+          width: "100%",
+          background:
+            "radial-gradient(circle at 10% 20%, rgb(239, 246, 249) 0%, rgb(206, 239, 253) 90%)",
+          fontSize: "88px",
+          textAlign: "center",
+        },
+        children: [
+          {
+            type: "div",
+            props: {
+              style: {
+                display: "flex",
+                fontWeight: "bold",
+                marginBottom: "32px",
+              },
+              children: [
+                {
+                  type: "span",
+                  props: {
+                    style: {
+                      color: "black",
+                    },
+                    children: "page",
+                  },
+                },
+                {
+                  type: "span",
+                  props: {
+                    style: {
+                      color: "#5570F1",
+                    },
+                    children: "gen",
+                  },
+                },
+              ],
+            },
+          },
+          {
+            type: "div",
+            props: {
+              style: {
+                color: "black",
+                fontSize: "20px",
+                width: "65%",
+                lineHeight: "1.5",
+              },
+              children: SITE.description,
+            },
+          },
+        ],
       },
     },
     {

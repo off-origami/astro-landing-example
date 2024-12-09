@@ -7,9 +7,9 @@ export const SITE: Site = {
   name: "pagegen",
   title: "Pagegen: Webpage builder for marketers",
   description:
-    "Pagegen is a platform designed for marketing teams to quickly create, test, and optimize high-converting webpages without the need for coding.",
-  image: "/default-og-image.jpg",
-  imageAlt: "A preview of Example Site",
+    "Pagegen is a platform designed for marketing teams to quickly create, test, and optimize webpages without the need for coding.",
+  image: "og.jpeg",
+  imageAlt: "Pagegen: Webpage builder for marketers",
 
   twitter: {
     card: "summary_large_image",
